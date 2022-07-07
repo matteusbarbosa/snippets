@@ -1,10 +1,11 @@
 define(
 	// dependencies
 	[
+		"shared/Ajaxer",
 		"utils"
 	],
 
-	function( Utils ) {
+	function( Utils, Ajaxer) {
 		"use strict";
 		/**
 		 * Instagram Feed using Basic Display API
@@ -31,7 +32,7 @@ define(
 			/** @lends InstagramFeedLoader */
 			return {
 				init : function() {
-
+					//should come from Mason instagram-feed block info
 					this.test_token = 'IGQVJWLUF2cG9kWXhnZAjJlLUJvWW0xZAEVuMnBPM0RJVW9TaDVHSTVkdzJ0Y05wZAmI3OWVFYkQ2RGlmRnhtTkpGQ1NTTWRNNUY5MGZAKVEg0SmtqblVBQUJQV3VUcDk1REp4UmxZAbksxNE40ODlwdEVCMwZDZD'; 
 
 					// Load instagram if it's not already
@@ -40,17 +41,6 @@ define(
 					}
 				},
 
-				//1 step - request user login password
-				requestCredentials: function(){
-					//content will be provided after Submit for App analysis process.
-				},
-
-				//2 step - set the token returned from success authentication (step 1)
-				authenticate: function(){
-					//content will be provided after Submit for App analysis process.
-				},
-
-				//4 step - display the grid
 				renderInstagram: function(){
 					const url = 'https://graph.instagram.com/me/media';
 					const params = {
